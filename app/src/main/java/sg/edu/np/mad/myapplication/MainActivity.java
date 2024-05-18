@@ -7,6 +7,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,4 +27,36 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
     }
+
+
+
+    public class ListActivity extends AppCompatActivity {
+
+        private List<User> userList;
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
+
+            // Generate a list of 20 users
+            userList = new ArrayList<>();
+            Random random = new Random();
+
+            for (int i = 0; i < 20; i++) {
+                String name = "Name " + (i + 1);
+                String description = "Description " + (i + 1);
+                int id = random.nextInt();
+                boolean followed = random.nextBoolean();
+                userList.add(new User(name, description, id, followed));
+            }
+
+            // Initialize RecyclerView
+            RecyclerView recyclerView = findViewById(R.id.recyclerView);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            UserAdapter adapter = new UserAdapter(userList);
+            recyclerView.setAdapter(adapter);
+        }
+    }
+
 }
