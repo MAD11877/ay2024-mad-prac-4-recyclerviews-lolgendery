@@ -29,7 +29,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         User user = userList.get(position);
         holder.userName.setText(user.name);
         holder.userDescription.setText(user.description);
-        holder.userFollowed.setChecked(user.followed);
     }
 
     @Override
@@ -41,7 +40,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
 
         TextView userName;
         TextView userDescription;
-        CheckBox userFollowed;
 
         public UserViewHolder(@NonNull View itemView) {
             super(itemView);

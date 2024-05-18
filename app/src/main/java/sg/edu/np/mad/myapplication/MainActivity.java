@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        setContentView(R.layout.activity_main);
 
         userList = new ArrayList<>();
         Random random = new Random();
@@ -50,18 +49,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    public class ListActivity extends AppCompatActivity {
 
-        private List<User> userList;
-
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-
-
-            // Generate a list of 20 users
-
-        }
-    }
 
 }
