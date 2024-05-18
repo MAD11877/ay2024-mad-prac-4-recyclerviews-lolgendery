@@ -11,4 +11,26 @@ public class User {
         this.id = id;
         this.followed = followed;
     }
+    public String getName(){
+        return name;
+    }
+
+
+
+    public String getDescription() {
+        return description;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public boolean isFollowed() {
+        return followed;
+    }
+
+    public void setFollowed(boolean followed) {
+        this.followed = followed;
+    }
+
 }
