@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
+    private List<User> userList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,25 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        setContentView(R.layout.activity_main);
+
+        userList = new ArrayList<>();
+        Random random = new Random();
+
+        for (int i = 0; i < 20; i++) {
+            String name = "Name " + random.nextInt();
+            String description = "Description " + random.nextInt();
+            int id = random.nextInt();
+            boolean followed = random.nextBoolean();
+            userList.add(new User(name, description, id, followed));
+        }
+
+        // Initialize RecyclerView
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        UserAdapter adapter = new UserAdapter(userList);
+        recyclerView.setAdapter(adapter);
+
     }
 
 
@@ -37,25 +57,10 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
+
 
             // Generate a list of 20 users
-            userList = new ArrayList<>();
-            Random random = new Random();
 
-            for (int i = 0; i < 20; i++) {
-                String name = "Name " + random.nextInt();
-                String description = "Description " + random.nextInt();
-                int id = random.nextInt();
-                boolean followed = random.nextBoolean();
-                userList.add(new User(name, description, id, followed));
-            }
-
-            // Initialize RecyclerView
-            RecyclerView recyclerView = findViewById(R.id.recyclerView);
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
-            UserAdapter adapter = new UserAdapter(userList);
-            recyclerView.setAdapter(adapter);
         }
     }
 

@@ -47,7 +47,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
             super(itemView);
             userName = itemView.findViewById(R.id.userName);
             userDescription = itemView.findViewById(R.id.userDescription);
-            userFollowed = itemView.findViewById(R.id.userFollowed);
+
         }
     }
 }
