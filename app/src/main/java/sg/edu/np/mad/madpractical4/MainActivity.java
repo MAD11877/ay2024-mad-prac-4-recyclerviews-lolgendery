@@ -1,4 +1,4 @@
-package sg.edu.np.mad.myapplication;
+package sg.edu.np.mad.madpractical4;
 
 import android.os.Bundle;
 
