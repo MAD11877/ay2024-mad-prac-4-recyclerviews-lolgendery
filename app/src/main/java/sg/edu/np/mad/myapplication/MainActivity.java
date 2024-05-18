@@ -44,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
             Random random = new Random();
 
             for (int i = 0; i < 20; i++) {
-                String name = "Name " + (i + 1);
-                String description = "Description " + (i + 1);
+                String name = "Name " + random.nextInt();
+                String description = "Description " + random.nextInt();
                 int id = random.nextInt();
                 boolean followed = random.nextBoolean();
                 userList.add(new User(name, description, id, followed));
