@@ -1,5 +1,6 @@
 package sg.edu.np.mad.madpractical4;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,15 +16,18 @@ import sg.edu.np.mad.myapplication.R;
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder> {
 
     private List<User> userList;
+    private Context context;
 
     public UserAdapter(List<User> userList) {
         this.userList = userList;
+        this.context = context;
     }
 
     @NonNull
     @Override
     public UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_user, parent, false);
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View view = inflater.inflate(R.layout.item_user, parent, false);
         return new UserViewHolder(view);
     }
 
