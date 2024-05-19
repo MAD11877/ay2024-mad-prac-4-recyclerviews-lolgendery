@@ -5,10 +5,9 @@ public class User {
     public String description;
     public int id;
     public boolean followed;
-    public User(String name, String description, int id, boolean followed){
+    public User(String name, String description, boolean followed){
         this.name = name;
         this.description = description;
-        this.id = id;
         this.followed = followed;
     }
     public String getName(){
@@ -19,10 +18,6 @@ public class User {
 
     public String getDescription() {
         return description;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public boolean getFollowed() {
