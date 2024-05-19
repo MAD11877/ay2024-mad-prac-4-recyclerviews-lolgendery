@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
             String description = "Description " + random.nextInt();
             int id = random.nextInt();
             boolean followed = random.nextBoolean();
-            userList.add(new User(name, description, followed));
+            userList.add(new User(name, description, id, followed));
         }
 
         // Initialize RecyclerView
